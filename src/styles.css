@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@500;700&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -63,25 +64,28 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  /* Azuki palette: off-white paper, deep red, ink black */
+  --background: oklch(0.97 0.012 80);     /* warm off-white / beige */
+  --foreground: oklch(0.18 0.01 60);      /* near-black ink */
+  --card: oklch(0.985 0.008 80);
+  --card-foreground: oklch(0.18 0.01 60);
+  --popover: oklch(0.985 0.008 80);
+  --popover-foreground: oklch(0.18 0.01 60);
+  --primary: oklch(0.5 0.19 25);          /* deep azuki red */
+  --primary-foreground: oklch(0.98 0.005 80);
+  --secondary: oklch(0.93 0.015 70);
+  --secondary-foreground: oklch(0.18 0.01 60);
+  --muted: oklch(0.93 0.012 75);
+  --muted-foreground: oklch(0.45 0.015 60);
+  --accent: oklch(0.5 0.19 25);
+  --accent-foreground: oklch(0.98 0.005 80);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(0.98 0.005 80);
+  --border: oklch(0.85 0.012 70);
+  --input: oklch(0.9 0.012 70);
+  --ring: oklch(0.5 0.19 25);
+  --success: oklch(0.55 0.14 145);
+  --ink: oklch(0.12 0.01 60);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +144,60 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: "Bebas Neue", "Inter", sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  .font-jp {
+    font-family: "Noto Serif JP", serif;
+  }
+}
+
+@layer utilities {
+  .text-ink { color: var(--ink); }
+  .bg-ink { background-color: var(--ink); }
+  .text-success { color: var(--success); }
+  .text-azuki { color: var(--primary); }
+  .bg-azuki { background-color: var(--primary); }
+  .bg-paper { background-color: var(--background); }
+
+  .grain {
+    background-image:
+      radial-gradient(oklch(0.18 0.01 60 / 0.04) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+
+  .vertical-rl {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  @keyframes az-fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes az-slide-in {
+    from { opacity: 0; transform: translateX(-24px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes az-stamp {
+    0% { opacity: 0; transform: scale(1.4) rotate(-8deg); }
+    100% { opacity: 1; transform: scale(1) rotate(-6deg); }
+  }
+  .animate-fade-up { animation: az-fade-up 0.8s cubic-bezier(.2,.7,.2,1) both; }
+  .animate-slide-in { animation: az-slide-in 0.6s ease-out both; }
+  .animate-stamp { animation: az-stamp 0.7s cubic-bezier(.2,.9,.3,1.2) both; }
+
+  .hover-lift {
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -12px oklch(0.18 0.01 60 / 0.25);
   }
 }
