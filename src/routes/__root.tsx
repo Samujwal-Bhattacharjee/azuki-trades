@@ -29,14 +29,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Stock & Options Portfolio Manage" },
+      { name: "description", content: "Azuki Trades is a full-stack stock and options portfolio manager with a minimalist, Azuki-inspired UI." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Stock & Options Portfolio Manage" },
+      { property: "og:description", content: "Azuki Trades is a full-stack stock and options portfolio manager with a minimalist, Azuki-inspired UI." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Stock & Options Portfolio Manage" },
+      { name: "twitter:description", content: "Azuki Trades is a full-stack stock and options portfolio manager with a minimalist, Azuki-inspired UI." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/bcc4e469-a106-4a15-9cae-8c876e0bd4f7/id-preview-bb97c519--a1fba506-5dd9-4c88-9025-d0e82dd1a11b.lovable.app-1777375747303.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/bcc4e469-a106-4a15-9cae-8c876e0bd4f7/id-preview-bb97c519--a1fba506-5dd9-4c88-9025-d0e82dd1a11b.lovable.app-1777375747303.png" },
     ],
     links: [
       {
